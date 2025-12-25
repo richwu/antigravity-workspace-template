@@ -2,7 +2,7 @@
 title: "Architecture Proposal: Execution Environment Abstraction (Sandbox)"
 status: "RFC (Request for Comments)"
 date: "2025-12-25"
-context: "Issue #45 — Sandbox Environment Dilemma"
+context: "Issue #9 — Sandbox Environment Dilemma"
 owners:
   - "(Fill in)"
 ---
@@ -63,7 +63,7 @@ Today this repository:
 - Discovers tools locally from `src/tools/*.py` (dynamic loading).
 - Can integrate MCP as external tools.
 - Does not include a formal "sandbox": running potentially untrusted code is
-  an open gap (Issue #45).
+  an open gap (Issue #9).
 
 This proposal introduces an **execution abstraction** so that:
 

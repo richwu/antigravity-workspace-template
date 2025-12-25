@@ -2,7 +2,7 @@
 title: "Propuesta de Arquitectura: Abstracción de Entorno de Ejecución (Sandbox)"
 status: "RFC (Request for Comments)"
 date: "2025-12-25"
-context: "Issue #45 — Sandbox Environment Dilemma"
+context: "Issue #9 — Sandbox Environment Dilemma"
 owners:
     - "(Completar)"
 ---
@@ -15,26 +15,26 @@ owners:
 
 - [1. Resumen ejecutivo](#1-resumen-ejecutivo)
 - [2. Problema y contexto](#2-problema-y-contexto)
-- [3. Decisión clave](#3-decision-clave)
+- [3. Decisión clave](#3-decisión-clave)
 - [4. Objetivos y no-objetivos](#4-objetivos-y-no-objetivos)
 - [5. Arquitectura conceptual](#5-arquitectura-conceptual)
     - [5.1. Diagrama de clases (Strategy + Factory)](#51-diagrama-de-clases-strategy--factory)
-    - [5.2. Flujo de ejecución](#52-flujo-de-ejecucion)
-- [6. Especificación técnica](#6-especificacion-tecnica)
+    - [5.2. Flujo de ejecución](#52-flujo-de-ejecución)
+- [6. Especificación técnica](#6-especificación-técnica)
     - [6.1. Estructura de directorios propuesta](#61-estructura-de-directorios-propuesta)
     - [6.2. Contratos de datos](#62-contratos-de-datos)
     - [6.3. Interfaz (Protocol)](#63-interfaz-protocol)
     - [6.4. Implementación default: LocalSandbox](#64-implementacion-default-localsandbox)
-    - [6.5. Factory: resolución por configuración](#65-factory-resolucion-por-configuracion)
+    - [6.5. Factory: resolución por configuración](#65-factory-resolución-por-configuración)
     - [6.6. Implementación opt-in: DockerSandbox](#66-implementacion-opt-in-dockersandbox)
     - [6.7. Implementación futura: Cloud/E2B](#67-implementacion-futura-cloude2b)
-- [7. Integración con el agente (alineación con el repo)](#7-integracion-con-el-agente-alineacion-con-el-repo)
+- [7. Integración con el agente (alineación con el repo)](#7-integración-con-el-agente-alineación-con-el-repo)
 - [8. Modelo de seguridad](#8-modelo-de-seguridad)
     - [8.1. Riesgos por modo](#81-riesgos-por-modo)
     - [8.2. Mitigaciones mínimas para LocalSandbox (MVP)](#82-mitigaciones-minimas-para-localsandbox-mvp)
     - [8.3. Controles recomendados para DockerSandbox](#83-controles-recomendados-para-dockersandbox)
 - [9. Observabilidad y auditoría](#9-observabilidad-y-auditoria)
-- [10. Plan de implementación (por fases)](#10-plan-de-implementacion-por-fases)
+- [10. Plan de implementación (por fases)](#10-plan-de-implementación-por-fases)
 
 ---
 
@@ -55,7 +55,7 @@ Este repositorio hoy:
 
 - Descubre tools localmente desde `src/tools/*.py` (carga dinámica).
 - Puede integrar MCP como herramientas externas.
-- No incluye un “sandbox” formal: la ejecución de código potencialmente no confiable es un vacío (Issue #45).
+- No incluye un "sandbox" formal: la ejecución de código potencialmente no confiable es un vacío (Issue #9).
 
 La propuesta busca introducir una **abstracción de ejecución** para que:
 
